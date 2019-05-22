@@ -21,3 +21,9 @@ fun printFiles(header: String, files: FileCollection) {
     logger.lifecycle(header)
     files.forEach { f -> logger.lifecycle(" -> $f") }
 }
+
+tasks {
+    "test" {
+        inputs.property("version.class", System.getenv().getOrDefault("VERSION_CLASS", ""))
+    }
+}
